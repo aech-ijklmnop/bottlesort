@@ -4,13 +4,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 <nav>
   <div class="nav-left">
-    <a href="index.php">
+    <a href="index.html">
       <img src="img/logo1.png" alt="BottleSort" class="nav-logo">
     </a>
   </div>
 
   <div class="nav-center">
-    <a href="index.php" class="<?= $current_page == 'index.php' ? 'active' : '' ?>">
+    <a href="index.html" class="<?= $current_page == 'index.html' ? 'active' : '' ?>">
       <img src="img/home.png" class="nav-icon" alt=""> Home
     </a>
     <a href="about.php" class="<?= $current_page == 'about.php' ? 'active' : '' ?>">
@@ -35,4 +35,5 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <img src="img/admin.png" class="nav-icon" alt=""> Admin
     </a>
   </div>
+
 </nav>
