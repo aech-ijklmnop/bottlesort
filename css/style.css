@@ -1,0 +1,251 @@
+/* =====================================================
+   CRITICAL FIX: Scrollbar Always Visible
+   ===================================================== */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll !important; /* FORCES scrollbar on ALL pages */
+  height: 100%;
+}
+
+/* ---------------------- GLOBAL ---------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #004e44;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow body to scroll */
+  min-height: 100vh;
+  display: flex; /* Enable flexbox layout */
+  flex-direction: column; /* Stack navbar, main, footer vertically */
+  background: linear-gradient(
+    to right,
+    #f9faf9 0%,
+    #f5f8f6 50%,
+    #f9faf9 100%
+  );
+  background-attachment: fixed; /* Keeps gradient steady on scroll */
+}
+
+/* --- Background image (gradient baked in) --- */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+
+  background: url('../img/bg.png') center center / cover no-repeat;
+  opacity: 1;
+
+  mask-image: none;
+  -webkit-mask-image: none;
+
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Keep all content above background */
+nav, section, footer, main {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* Main content wrapper - grows to fill available space */
+main {
+  flex: 1 0 auto; /* Grow to fill space, don't shrink */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------- NAVBAR ---------------------- */
+nav {
+  position: sticky;
+  top: 0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  flex-shrink: 0; /* Prevent navbar from shrinking */
+  background: #004e44 !important; /* Solid color */
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: none !important; /* Remove blur */
+  height: 60px; /* FIXED HEIGHT */
+  min-height: 60px;
+  max-height: 60px;
+}
+
+/* Navbar sections alignment */
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-left img {
+  height: 15px;
+  transform: scale(1.5);
+  transform-origin: left center;
+}
+
+.nav-center a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.nav-center a:hover,
+.nav-center a.active {
+  color: #e0f8f1;
+  transform: translateY(-2px);
+}
+
+/* Active link styling */
+.nav-center a.active {
+  border-bottom: 2px solid #e0f8f1;
+  padding-bottom: 2px;
+}
+
+.nav-center img.nav-icon, .nav-right img.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* NAVBAR RIGHT - FIXED DIMENSIONS FOR CONSISTENCY */
+.nav-right {
+  width: 140px; /* FIXED WIDTH - prevents navbar shift */
+  min-width: 140px;
+  max-width: 140px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-right a,
+.nav-right-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  white-space: nowrap; /* Prevent text wrapping */
+  width: 130px; /* FIXED WIDTH - same for Admin and Sign Out */
+  min-width: 130px;
+  max-width: 130px;
+  padding: 0.5rem 0.75rem; /* Same padding for both */
+  text-align: center;
+}
+
+.nav-right a:hover,
+.nav-right-link:hover {
+  color: #e0f8f1;
+  transform: translateY(-2px);
+}
+
+/* ---------------------- HERO ---------------------- */
+#intro {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  overflow: hidden;
+  background: rgba(0,60,50,0.4); /* Slight overlay for text readability */
+}
+
+.intro-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 4rem;
+  max-width: 750px;
+  text-align: left;
+}
+
+.intro-content img {
+  width: 350px;
+  margin-bottom: 1rem;
+}
+
+.intro-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: #eafaf4;
+}
+
+.cta-btn {
+  background: #004e44;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #007a6e;
+}
+
+/* ---------------------- PAGE SECTIONS ---------------------- */
+section {
+  padding: 3rem 6%;
+  color: #004e44;
+}
+
+/* ---------------------- FOOTER ---------------------- */
+footer {
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  margin-top: auto; /* Push footer to bottom on short pages */
+  background: #004e44 !important; /* Solid color */
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: none !important; /* Remove blur */
+}
+
+/* ---------------------- MEDIA QUERIES ---------------------- */
+@media (max-width: 900px) {
+  .intro-content {
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .intro-content h1 {
+    font-size: 2.2rem;
+  }
+
+  body::after {
+    display: none;
+  }
+}
