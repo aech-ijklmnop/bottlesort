@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,20 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
+
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- AOS -->
+
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Main CSS -->
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
-<?php include 'navbar.php'; ?>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="home.html" class="logo">
+      <img src="img/logo2.png" alt="BottleSort Logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="about.php">About</a></li>
+      <li><a href="system.php">System</a></li>
+      <li><a href="contact.php">Contact</a></li>
+      <li><a href="admin-login.php" class="admin-btn">Admin</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- MAIN CONTENT WRAPPER -->
+
 <main>
   <!-- HERO SECTION -->
   <section id="intro">
@@ -34,14 +53,20 @@
 </main>
 
 <!-- FOOTER -->
-<?php include 'footer.php'; ?>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 BottleSort. All rights reserved.</p>
+  </div>
+</footer>
 
 <!-- AOS -->
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
   AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
-
 </html>
