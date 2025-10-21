@@ -1,0 +1,49 @@
+<?php
+// index.php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | BottleSort</title>
+  <link rel="icon" type="image/png" href="img/logo8.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<?php include 'navbar.php'; ?>
+
+<!-- MAIN CONTENT WRAPPER -->
+<main>
+  <!-- HERO SECTION -->
+  <section id="intro">
+    <div class="intro-content" data-aos="fade-right">
+      <img src="img/logo2.png" alt="BottleSort Logo">
+      <h1>Auto-Sort the Plastic, Auto-Save the Planet.</h1>
+      <p><em>BottleSort is an intelligent, automated system that uses sensors and AI to identify and sort plastic bottles by material type — including PET, HDPE, LDPE, and PP. By streamlining the segregation process at the source, BottleSort reduces human effort, increases recycling efficiency, and helps build a cleaner, greener future — one bottle at a time.</em></p>
+      <a href="about.php" class="cta-btn">Learn More</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<?php include 'footer.php'; ?>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>
